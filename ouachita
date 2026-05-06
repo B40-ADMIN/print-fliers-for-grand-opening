@@ -1,7 +1,7 @@
     <!-- OUACHITA KIT -->
     <div class="pkg-card">
       <div class="pkg-photo">
-        <img src="https://raw.githubusercontent.com/B40-ADMIN/B40-First-repo/main/ouachita-tent.JPG" alt="ouachita tent photo"
+        <img src="https://raw.githubusercontent.com/B40-ADMIN/B40-First-repo/main/ouachita-tent.JPG" alt="ouachita tent photo">
           <div class="pkg-photo-overlay">
           <div class="pkg-tier-label">Ultralight / Backpacking Tier</div>
           <div class="pkg-name">The Ouachita Kit</div>
