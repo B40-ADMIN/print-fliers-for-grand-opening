@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-Content \"c:\\\\Users\\\\creyn\\\\OneDrive\\\\Documents\\\\GitHub\\\\print-fliers-for-grand-opening\\\\basecamp\" -TotalCount 30)"
+    ]
+  }
+}
