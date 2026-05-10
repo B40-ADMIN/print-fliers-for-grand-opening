@@ -17,9 +17,9 @@ body{font-family:'DM Sans',sans-serif;background:#d6d3cb;display:flex;justify-co
 /* ════════════════════════════════
    1. HEADER
 ════════════════════════════════ */
-.hdr{background:#2C3E2D;padding:28px 48px 22px;text-align:center;position:relative}
-.hdr-logo{height:56px;width:auto;display:block;margin:0 auto 14px}
-.hdr-headline{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#F4F0E6;line-height:1.08;margin-bottom:8px;letter-spacing:-0.01em}
+.hdr{background:#2C3E2D;padding:22px 48px 22px;text-align:center;position:relative}
+.hdr-logo{height:48px;width:auto;display:block;margin:0 auto 14px}
+.hdr-headline{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#F4F0E6;line-height:1.08;margin-bottom:6px;letter-spacing:-0.01em}
 .hdr-headline em{color:#C8AA6E;font-style:normal}
 .hdr-hook{font-size:13px;color:rgba(244,240,230,0.8);margin-bottom:6px;line-height:1.5;font-weight:400}
 .hdr-locale{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:#C8AA6E;font-weight:600;opacity:0.75}
@@ -27,19 +27,19 @@ body{font-family:'DM Sans',sans-serif;background:#d6d3cb;display:flex;justify-co
 /* ════════════════════════════════
    2. WHY STRIP (value prop bar)
 ════════════════════════════════ */
-.why-bar{background:#B5631A;padding:13px 40px;display:flex;justify-content:space-around;align-items:center;gap:8px;flex-wrap:wrap}
+.why-bar{background:#B5631A;padding:10px 40px;display:flex;justify-content:space-around;align-items:center;gap:8px;flex-wrap:wrap}
 .why-item{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:6px}
-.why-item svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:0.85;flex-shrink:0}
+.why-item svg{width:11px;height:11px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:0.85;flex-shrink:0}
 
 /* ════════════════════════════════
    3. PAIN → RELIEF BLOCK
 ════════════════════════════════ */
-.relief{background:#fff;padding:20px 48px 18px;display:flex;gap:32px;align-items:stretch;border-bottom:1px solid rgba(44,62,45,0.1)}
+.relief{background:#fff;padding:18px 48px 18px;display:flex;gap:32px;align-items:stretch;border-bottom:1px solid rgba(44,62,45,0.1)}
 .relief-left{flex:1.1}
 .relief-eyebrow{font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:#B5631A;font-weight:600;margin-bottom:8px}
 .relief-headline{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#2C3E2D;line-height:1.2;margin-bottom:10px}
 .relief-headline em{font-style:italic;color:#4A7C59}
-.relief-body{font-size:11px;color:#555;line-height:1.65}
+.relief-body{font-size:10px;color:#555;line-height:1.65}
 .relief-divider{width:1px;background:rgba(44,62,45,0.1);flex-shrink:0}
 .relief-right{flex:1;display:flex;flex-direction:column;justify-content:center;gap:7px;padding-left:4px}
 .relief-point{display:flex;align-items:flex-start;gap:8px;font-size:11px;color:#333;line-height:1.4}
@@ -49,7 +49,7 @@ body{font-family:'DM Sans',sans-serif;background:#d6d3cb;display:flex;justify-co
 /* ════════════════════════════════
    4. HOW IT WORKS
 ════════════════════════════════ */
-.hiw{background:#F4F0E6;padding:16px 48px 14px;border-bottom:1px solid rgba(44,62,45,0.1)}
+.hiw{background:#F4F0E6;padding:10px 48px 14px}
 .hiw-eyebrow{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:#4A7C59;font-weight:600;text-align:center;margin-bottom:10px}
 .hiw-steps{display:flex;align-items:flex-start;gap:0}
 .hiw-step{flex:1;display:flex;align-items:flex-start;gap:9px}
@@ -69,7 +69,7 @@ body{font-family:'DM Sans',sans-serif;background:#d6d3cb;display:flex;justify-co
 /* ════════════════════════════════
    6. KIT CARDS — 3-column row
 ════════════════════════════════ */
-.kits{padding:16px 28px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.kits{padding:16px 28px 16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 .kits-label{grid-column:1/-1;text-align:center;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:#4A7C59;font-weight:600;margin-bottom:2px}
 .kit{background:#fff;border-radius:10px;display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(44,62,45,0.1)}
 .kit.hero{border:2px solid #4A7C59}
@@ -156,14 +156,12 @@ body{font-family:'DM Sans',sans-serif;background:#d6d3cb;display:flex;justify-co
     <div class="relief-left">
       <div class="relief-eyebrow">Why it exists</div>
       <div class="relief-headline">Camping shouldn't require<br><em>a $2,000 gear run.</em></div>
-      <div class="relief-body">Most people want to go camping. They don't want to research tents, buy an air mattress they'll use twice, or spend a Sunday hunting down camp chairs. Back40utfitters removes all of that. Pick a kit, show up, camp.</div>
     </div>
     <div class="relief-divider"></div>
     <div class="relief-right">
-      <div class="relief-point"><div class="relief-point-dot"></div><div><strong>Skip the gear closet.</strong> No storage. No maintenance. No regret purchases.</div></div>
-      <div class="relief-point"><div class="relief-point-dot"></div><div><strong>No Walmart run before the trip.</strong> Everything's already packed and ready.</div></div>
-      <div class="relief-point"><div class="relief-point-dot"></div><div><strong>Try premium gear first.</strong> Titanium cook kits. Self-inflating mattresses. No commitment.</div></div>
-      <div class="relief-point"><div class="relief-point-dot"></div><div><strong>Go this weekend.</strong> Not after six hours of Amazon research.</div></div>
+      <div class="relief-point"><div class="relief-point-dot"></div><div><strong>No storage.</strong> No maintenance. No regret purchases.</div></div>
+      <div class="relief-point"><div class="relief-point-dot"></div><div><strong>Everything packed.</strong> Titanium cookware, premium shelter, sleep system — ready to go.</div></div>
+      <div class="relief-point"><div class="relief-point-dot"></div><div><strong>Go this weekend.</strong> Pick a kit, show up, camp.</div></div>
     </div>
   </div>
 
