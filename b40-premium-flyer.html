@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Back 40 Outfitters — Premium Gear Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1c1a17;
+      --slate:      #3a3d3c;
+      --stone:      #6b6860;
+      --dusk:       #8f8c84;
+      --fog:        #c8c4bb;
+      --parchment:  #f3efe8;
+      --cream:      #faf8f4;
+      --moss:       #4a5240;
+      --fern:       #657558;
+      --sage:       #8fa07a;
+      --mist:       #d4dccb;
+      --accent:     #b87333;  /* warm copper — premium, not loud */
+
+      --serif:      'DM Serif Display', Georgia, serif;
+      --sans:       'Inter', system-ui, sans-serif;
+      --mono:       'Space Mono', monospace;
+
+      --page-w:     8.5in;
+      --page-h:     11in;
+    }
+
+    html, body {
+      background: #2a2825;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 32px 16px;
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Page Shell ─── */
+    .flyer {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 36px 14px;
+      border-bottom: 1px solid var(--fog);
+      background: var(--cream);
+      position: relative;
+      z-index: 10;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark img {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-tagline {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      line-height: 1.4;
+    }
+
+    .top-bar-right {
+      font-family: var(--mono);
+      font-size: 7.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dusk);
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    /* ─── HOOK SECTION ─── */
+    .hook {
+      padding: 38px 36px 0;
+      position: relative;
+    }
+
+    .hook-eyebrow {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hook-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--fern);
+    }
+
+    .hook-headline {
+      font-family: var(--serif);
+      font-size: 58px;
+      line-height: 1.0;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      max-width: 560px;
+    }
+
+    .hook-headline em {
+      font-style: italic;
+      color: var(--moss);
+    }
+
+    .hook-sub {
+      margin-top: 16px;
+      font-size: 13.5px;
+      color: var(--slate);
+      line-height: 1.55;
+      font-weight: 400;
+      max-width: 400px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── HERO IMAGE ─── */
+    .hero {
+      margin: 26px 36px 0;
+      position: relative;
+      height: 252px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+
+    /* Cinematic overlay — dark at edges, open in center */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(28,26,23,0.35) 0%, transparent 30%, transparent 70%, rgba(28,26,23,0.25) 100%),
+        linear-gradient(to bottom, transparent 55%, rgba(28,26,23,0.55) 100%);
+      pointer-events: none;
+    }
+
+    /* Gear brand signals in hero */
+    .hero-badges {
+      position: absolute;
+      bottom: 14px;
+      right: 16px;
+      z-index: 5;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      background: rgba(250,248,244,0.12);
+      border: 1px solid rgba(250,248,244,0.28);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 2px;
+      padding: 4px 9px;
+      font-family: var(--mono);
+      font-size: 6.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250,248,244,0.85);
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      z-index: 5;
+      font-family: var(--mono);
+      font-size: 7px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(250,248,244,0.6);
+    }
+
+    /* ─── DIVIDER ─── */
+    .rule {
+      margin: 28px 36px;
+      height: 1px;
+      background: linear-gradient(to right, var(--fog), transparent);
+    }
+
+    /* ─── KIT SECTION ─── */
+    .kits-label {
+      padding: 0 36px;
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .kits-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--fern);
+    }
+
+    .kits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin: 0 36px;
+      background: var(--fog);
+      border: 1px solid var(--fog);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .kit-card {
+      background: var(--cream);
+      padding: 20px 18px 18px;
+      position: relative;
+    }
+
+    .kit-card::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--moss);
+      margin-bottom: 12px;
+    }
+
+    .kit-card.featured::before {
+      background: var(--accent);
+    }
+
+    .kit-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 5px;
+      line-height: 1;
+    }
+
+    .kit-desc {
+      font-size: 10.5px;
+      color: var(--slate);
+      line-height: 1.5;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .kit-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .kit-features li {
+      font-family: var(--mono);
+      font-size: 7.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kit-features li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--sage);
+      flex-shrink: 0;
+    }
+
+    .kit-card.featured .kit-features li::before {
+      background: var(--accent);
+    }
+
+    /* ─── PROCESS SECTION ─── */
+    .process {
+      padding: 0 36px;
+      margin-top: 28px;
+    }
+
+    .process-label {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fern);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .process-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--fern);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    /* connecting line between steps */
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 17px;
+      left: calc(16.66% + 8px);
+      right: calc(16.66% + 8px);
+      height: 1px;
+      background: linear-gradient(to right, var(--fog), var(--fog));
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      padding-right: 16px;
+    }
+
+    .step:last-child { padding-right: 0; }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--moss);
+      color: var(--cream);
+      font-family: var(--mono);
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      letter-spacing: 0;
+    }
+
+    .step-body {}
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1.1;
+    }
+
+    .step-detail {
+      font-size: 10px;
+      color: var(--stone);
+      line-height: 1.55;
+      font-weight: 400;
+      max-width: 155px;
+    }
+
+    /* ─── BOTTOM STRIP ─── */
+    .bottom-strip {
+      margin-top: auto;
+      margin-top: 24px;
+      display: flex;
+      gap: 0;
+      margin: 24px 36px 0;
+      border: 1px solid var(--fog);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    /* QR Panel */
+    .qr-panel {
+      background: var(--moss);
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-shrink: 0;
+      width: 148px;
+    }
+
+    .qr-frame {
+      width: 88px;
+      height: 88px;
+      background: var(--cream);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+    }
+
+    .qr-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .qr-label {
+      font-family: var(--mono);
+      font-size: 7px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250,248,244,0.7);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .qr-cta {
+      font-family: var(--serif);
+      font-size: 13px;
+      color: var(--cream);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    /* Trust Panel */
+    .trust-panel {
+      flex: 1;
+      background: var(--parchment);
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+      align-content: center;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .trust-title {
+      font-family: var(--mono);
+      font-size: 7.5px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--moss);
+      font-weight: 700;
+    }
+
+    .trust-detail {
+      font-size: 10px;
+      color: var(--slate);
+      line-height: 1.45;
+      font-weight: 400;
+    }
+
+    /* Contact / URL Panel */
+    .contact-panel {
+      background: var(--ink);
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+      width: 160px;
+      flex-shrink: 0;
+    }
+
+    .contact-url {
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+
+    .contact-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .contact-line {
+      font-family: var(--mono);
+      font-size: 7px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dusk);
+      line-height: 1.5;
+    }
+
+    .contact-line span {
+      color: var(--fog);
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      padding: 10px 36px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 6.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dusk);
+    }
+
+    .footer-region {
+      font-family: var(--mono);
+      font-size: 6.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dusk);
+    }
+
+    /* ─── PRINT ─── */
+    @media print {
+      html, body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .flyer {
+        width: 8.5in;
+        min-height: 11in;
+        page-break-after: always;
+        box-shadow: none;
+      }
+
+      @page {
+        size: 8.5in 11in;
+        margin: 0;
+      }
+    }
+
+    /* ─── SCREEN SHADOW ─── */
+    @media screen {
+      .flyer {
+        box-shadow:
+          0 4px 12px rgba(0,0,0,0.25),
+          0 20px 60px rgba(0,0,0,0.35);
+      }
+    }
+
+    /* ─── SUBTLE TEXTURE ON PARCHMENT ZONES ─── */
+    .hook,
+    .trust-panel {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='none'/%3E%3Ccircle cx='1' cy='1' r='0.4' fill='%23b0a898' opacity='0.12'/%3E%3C/svg%3E");
+    }
+
+    /* ─── RIDGELINE ACCENT ─── */
+    .kit-card.featured {
+      background: #f7f4ef;
+    }
+
+    /* ─── STEP CONNECTOR REFINEMENT ─── */
+    .step-num {
+      font-weight: 700;
+    }
+
+    /* ─── QR HOVER HINT (SCREEN ONLY) ─── */
+    @media screen {
+      .qr-frame {
+        transition: transform 0.2s ease;
+      }
+      .qr-frame:hover {
+        transform: scale(1.04);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<article class="flyer">
+
+  <!-- ── TOP BAR ── -->
+  <header class="top-bar">
+    <div class="brand-mark">
+      <img src="../B40-First-repo/B40 Main Logo w Light BG.svg" alt="Back 40 Outfitters" />
+      <div class="brand-tagline">
+        Premium Gear Rentals<br>
+        Arkansas &amp; Oklahoma
+      </div>
+    </div>
+    <div class="top-bar-right">
+      back40outfitters.com<br>
+      Serving the Ouachita &amp; Ozarks
+    </div>
+  </header>
+
+  <!-- ── HOOK ── -->
+  <section class="hook">
+    <div class="hook-eyebrow">Premium camping &amp; backpacking kits</div>
+    <h1 class="hook-headline">Your next<br>trip,<br><em>handled.</em></h1>
+    <p class="hook-sub">
+      Curated technical gear — shelters, sleep systems, kitchen, navigation —
+      delivered to your trailhead or waiting at pickup. No storage. No guesswork.
+    </p>
+  </section>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <img
+      src="../B40-First-repo/ouachita-tent.JPG"
+      alt="Premium campsite setup in the Ouachita Mountains"
+      onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(160deg, #3a3d3c 0%, #2a2e28 50%, #1c1a17 100%)'"
+    />
+    <div class="hero-badges">
+      <span class="hero-badge">Durston</span>
+      <span class="hero-badge">Hyperlite</span>
+      <span class="hero-badge">Zpacks</span>
+    </div>
+    <div class="hero-caption">Ouachita National Forest, AR</div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ── KITS ── -->
+  <div class="kits-label">Three setups. Every trip type.</div>
+  <div class="kits-grid">
+
+    <div class="kit-card">
+      <div class="kit-name">Basecamp</div>
+      <div class="kit-desc">Complete comfort for families and weekend campers who want a premium setup without hauling gear.</div>
+      <ul class="kit-features">
+        <li>4-season shelter system</li>
+        <li>Insulated sleep kits</li>
+        <li>Camp kitchen &amp; cookware</li>
+        <li>Lighting &amp; comfort layers</li>
+      </ul>
+    </div>
+
+    <div class="kit-card featured">
+      <div class="kit-name">Ridgeline</div>
+      <div class="kit-desc">Ultralight technical performance. DCF shelters, carbon poles, and cuben-fiber packs for serious trail days.</div>
+      <ul class="kit-features">
+        <li>DCF / Dyneema shelter</li>
+        <li>Carbon fiber trekking poles</li>
+        <li>Ultralight sleep system</li>
+        <li>Ultralight pack included</li>
+      </ul>
+    </div>
+
+    <div class="kit-card">
+      <div class="kit-name">River Valley</div>
+      <div class="kit-desc">Water-ready kits engineered for float trips, creek camps, and multi-day river weekends.</div>
+      <ul class="kit-features">
+        <li>Packable dry storage</li>
+        <li>Quick-dry sleep system</li>
+        <li>Water filtration kit</li>
+        <li>Moisture-wicking layers</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ── PROCESS ── -->
+  <section class="process">
+    <div class="process-label">How it works</div>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-title">Choose a kit</div>
+          <div class="step-detail">Book online or call us. We'll match you to the right setup for your terrain, group size, and experience level.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-title">We coordinate delivery</div>
+          <div class="step-detail">Local pickup near your trailhead, or coordinated drop at your campsite. We handle the logistics.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-title">Go outside</div>
+          <div class="step-detail">Everything is packed, cleaned, and ready. Return when you're done. Zero storage. Zero maintenance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOTTOM STRIP ── -->
+  <div class="bottom-strip">
+
+    <!-- QR -->
+    <div class="qr-panel">
+      <div class="qr-frame">
+        <img
+          src="../B40-First-repo/QR Code to Google Booking Page.png"
+          alt="QR Code — Book a Kit"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      <div class="qr-cta">Reserve<br>a Kit</div>
+      <div class="qr-label">Scan to book<br>or explore setups</div>
+    </div>
+
+    <!-- Trust -->
+    <div class="trust-panel">
+      <div class="trust-item">
+        <div class="trust-title">Local &amp; Independent</div>
+        <div class="trust-detail">Arkansas-based, family owned. We know these trails.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-title">Cleaned Every Rental</div>
+        <div class="trust-detail">Every kit is inspected, sanitized, and tested before it ships.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-title">Technical Gear Only</div>
+        <div class="trust-detail">We carry Durston, Hyperlite, Zpacks, and other respected brands — nothing budget.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-title">No Gear? No Problem.</div>
+        <div class="trust-detail">Beginners to experienced trekkers — we'll set you up right for your trip.</div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-panel">
+      <div class="contact-url">back40<br>outfitters<br>.com</div>
+      <div class="contact-meta">
+        <div class="contact-line">Pickup &amp; Delivery<br><span>Arkansas / Oklahoma</span></div>
+        <div class="contact-line">Ouachita &bull; Ozark<br><span>Buffalo River &bull; Ponca</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-copy">© 2025 Back 40 Outfitters — All rights reserved</div>
+    <div class="footer-region">Premium camping &amp; backpacking gear rentals &mdash; Arkansas &amp; Oklahoma</div>
+  </footer>
+
+</article>
+
+</body>
+</html>
