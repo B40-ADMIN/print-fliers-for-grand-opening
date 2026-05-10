@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Back40utfitters – Flier1.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:#e0ddd6;display:flex;justify-content:center;padding:18px}
+/* Change min-height to height to keep it locked to one page */
+
+.page {
+  background: #F4F0E6;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+}  
+  .header{background:#2C3E2D;padding:24px 48px 18px;text-align:center}
+  .header-eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#C8AA6E;font-weight:500;margin-bottom:8px}
+  .header-title{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#F4F0E6;line-height:1.1;margin-bottom:4px}
+  .header-title span{color:#C8AA6E}
+  .header-sub{font-size:12px;color:rgba(244,240,230,0.7);max-width:480px;margin:0 auto;line-height:1.5}
+  .feature-bar{background:#B5631A;display:flex;justify-content:space-around;padding:8px 48px}
+  .feature-item{font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff}
+  .feature-item::before{content:'◆ ';color:rgba(244,240,230,0.7)}
+  .packages{flex:1;padding:16px 32px;display:flex;flex-direction:column;gap:18px}
+  .pkg-card {
+    break-inside: avoid; /* Prevents the card from splitting during print */
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    border: 1px solid rgba(44,62,45,0.12);
+    min-height: 160px;
+  }  
+  .pkg-photo{width:230px;flex-shrink:0;position:relative;overflow:hidden}
+  .pkg-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .pkg-photo-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.2) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:14px 16px}
+  .pkg-tier-label{
+    display:inline-block;
+    width:fit-content;
+    background:#4A7C59;
+    color:#fff;
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border-radius:999px;
+    padding:2px 8px;
+    margin-bottom:7px
+  }
+  .pkg-tier-label.orange{background:#B5631A}
+  .pkg-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#F4F0E6;line-height:1.1;margin-bottom:2px;}
+  .pkg-tagline-sm{font-size:9.5px;color:rgba(244,240,230,0.75);font-style:italic;line-height:1.4}
+  .pkg-price-wrap{margin-top:8px}
+  .pkg-from{font-size:8px;color:rgba(244,240,230,0.6);display:block;text-transform:uppercase;letter-spacing:0.08em}
+  .pkg-price{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#C8AA6E;line-height:1;}
+  .pkg-price sub{font-size:11px;font-family:'DM Sans',sans-serif;font-weight:400;color:rgba(200,170,110,0.85);vertical-align:baseline}
+  .pkg-content{flex:1;padding:16px 20px;display:flex;flex-direction:column}
+  .pkg-desc{font-size:11px;color:#555;line-height:1.5;margin-bottom:10px;font-style:italic}
+  .pkg-gear{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;flex:1}
+  .pkg-gear-item{font-size:11px;color:#1a1a18;display:flex;align-items:center;gap:5px;line-height:1.3}
+  .dot{display:inline-block;width:5px;height:5px;border-radius:50%;flex-shrink:0}
+  .pkg-note{margin-top:8px;font-size:9.5px;color:#B5631A;font-weight:500}
+  .pkg-badge{display:inline-block;background:#4A7C59;color:#fff;font-size:8px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-radius:999px;padding:2px 8px;margin-bottom:7px}
+  .pkg-badge.orange{background:#B5631A}
+  .cta-block{background:#2C3E2D;margin:0 32px 8px;border-radius:10px;padding:20px 26px;display:flex;align-items:center;gap:22px}
+  .cta-text{flex:1}
+  .cta-headline{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#F4F0E6;margin-bottom:4px}
+  .cta-headline span{color:#C8AA6E}
+  .cta-body{font-size:10.5px;color:rgba(244,240,230,0.7);line-height:1.5;margin-bottom:7px}
+  .cta-url{font-size:12.5px;font-weight:600;color:#C8AA6E;letter-spacing:0.04em}
+  .cta-qr{width:78px;height:78px;background:#F4F0E6;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .cta-qr-inner{font-size:7.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#2C3E2D;text-align:center;line-height:1.6}
+  .footer{text-align:center;padding:8px 48px 4px;font-size:8.5px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#6b6b60}
+  @media print{body{background:none;padding:0}.page{box-shadow:none;width:100%}}
+</style>
+
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-eyebrow">Back40utfitters · River Valley, Arkansas</div>
+    <div class="header-title">Gear Up. <span>Get Out.<br></span> Come Back Dirty.</div>
+    <div class="header-sub">We packed the gear so you don’t have to.</div>
+  </div>
+  <div class="feature-bar">
+    <span class="feature-item">Groups &amp; Glamping</span>
+    <span class="feature-item">Ultralight Trail Kits</span>
+    <span class="feature-item">Born in the Ouachitas</span>
+  </div>
+  <div class="packages">
+
+
+  <!-- Your Flyer Assembly -->
+  <div id="river-valley-pack"></div>
+  <div id="ridgeline"></div>
+  <div id="ouachita"></div>
+
+  
+    <!-- ====CALL TO ACTION ==== -->
+
+  <div class="cta-block">
+    <div class="cta-text">
+      <div class="cta-headline">Try Camping <span>Without Buying All The Gear</span></div>
+      <div class="cta-body">The outdoors shouldn't cost you a second mortgage. <br>Scan to reserve your weekend.</div>
+      <div class="cta-url">back40utfitters.com</div>
+    </div>
+    <img src="https://raw.githubusercontent.com/B40-ADMIN/B40-First-repo/main/QR%20Code%20to%20Google%20Booking%20Page.png" alt="Scan to book" class="cta-qr">
+  </div>
+  <div class="footer">Back40utfitters · Fort Smith, AR · "Gear Up. Get Out. Come Back Dirty."</div>
+</body>
+</html>
+
+<script>
+  // A simple function to "grab" the code from GitHub and drop it in
+  function loadKit(url, elementId) {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById(elementId).innerHTML = data;
+      });
+  }
+
+  // Call the specific kits you want for THIS flyer
+  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/basecamp', 'basecamp');
+  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/river-valley-pack', 'river-valley-pack');
+  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/ouachita', 'ouachita');
+  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/ridgeline', 'ridgeline');
+  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/dropcamp', 'dropcamp');
+
+</script>
