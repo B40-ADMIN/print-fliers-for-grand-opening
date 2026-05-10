@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back40utfitters</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+@page { size: 8.5in 11in; margin: 0; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #c8c5be;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+.page {
+  width: 8.5in;
+  min-height: 11in;
+  background: #F4F0E6;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ══════════════════════════════════════
+   HERO — top 52% of page
+   Dark green. Giant type. Logo. Nothing else.
+══════════════════════════════════════ */
+
+.hero {
+  background: #2C3E2D;
+  flex: 0 0 auto;
+  min-height: 4.8in;
+  padding: 44px 56px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero-logo {
+  height: 42px;
+  width: auto;
+  display: block;
+  margin-bottom: 48px;
+  opacity: 0.92;
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 82px;
+  line-height: 0.95;
+  color: #F4F0E6;
+  letter-spacing: -0.02em;
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-weight: 700;
+  color: #C8AA6E;
+}
+
+.hero-line2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 28px;
+  color: rgba(244,240,230,0.55);
+  margin-top: 20px;
+  letter-spacing: 0.01em;
+  padding-bottom: 44px;
+}
+
+/* Thick gold rule separating hero from body */
+.hero-rule {
+  height: 4px;
+  background: #C8AA6E;
+  width: 100%;
+  opacity: 0.75;
+}
+
+
+/* ══════════════════════════════════════
+   BODY — lower 48% of page
+   Cream. Editorial. Breathing room.
+══════════════════════════════════════ */
+
+.body {
+  flex: 1;
+  padding: 0 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Value statement ── */
+.value-line {
+  font-size: 13px;
+  font-weight: 300;
+  color: #555;
+  letter-spacing: 0.04em;
+  padding: 28px 0 0;
+  text-transform: uppercase;
+}
+
+/* ── Kit menu — restaurant-menu style ── */
+.kit-menu {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(44,62,45,0.15);
+}
+
+.kit-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(44,62,45,0.1);
+  gap: 16px;
+}
+
+.kit-row-left {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.kit-row-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2C3E2D;
+  white-space: nowrap;
+}
+
+.kit-row-dots {
+  flex: 1;
+  height: 1px;
+  border-bottom: 1px dotted rgba(44,62,45,0.2);
+  margin-bottom: 4px;
+  min-width: 20px;
+}
+
+.kit-row-for {
+  font-size: 11px;
+  font-weight: 400;
+  color: #888;
+  white-space: nowrap;
+  font-style: italic;
+  flex-shrink: 0;
+}
+
+.kit-row-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #B5631A;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.kit-row-price span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #aaa;
+}
+
+/* ── How line ── */
+.how-line {
+  margin-top: 36px;
+  border-top: 1px solid rgba(44,62,45,0.12);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.how-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.how-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2C3E2D;
+  color: #C8AA6E;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.how-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #444;
+  letter-spacing: 0.03em;
+}
+
+.how-arrow {
+  font-size: 14px;
+  color: #C8AA6E;
+  opacity: 0.5;
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+
+/* ── CTA ── */
+.cta {
+  margin-top: auto;
+  border-top: 1px solid rgba(44,62,45,0.15);
+  padding: 36px 0 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cta-left {}
+
+.cta-action {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: #2C3E2D;
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+
+.cta-action em {
+  font-style: italic;
+  font-weight: 700;
+  color: #B5631A;
+}
+
+.cta-url {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4A7C59;
+  letter-spacing: 0.05em;
+}
+
+.cta-locale {
+  font-size: 9px;
+  font-weight: 400;
+  color: #aaa;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.cta-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cta-qr-wrap img {
+  width: 130px;
+  height: 130px;
+  display: block;
+}
+
+.cta-qr-label {
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaa;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════
+   PRINT
+══════════════════════════════════════ */
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body { background: none; padding: 0; }
+  .page { box-shadow: none; width: 8.5in; min-height: 11in; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <img
+      src="https://raw.githubusercontent.com/B40-ADMIN/B40-First-repo/refs/heads/main/B40%20Main%20Logo%20w%20Dark%20BG.svg"
+      alt="Back40utfitters"
+      class="hero-logo"
+    />
+    <div class="hero-headline">
+      We packed<br>
+      the <em>gear.</em>
+    </div>
+    <div class="hero-line2">You just show up.</div>
+    <div style="font-size:16px;font-weight:300;color:rgba(244,240,230,0.5);letter-spacing:0.06em;text-transform:uppercase;padding-bottom:40px;margin-top:24px;">Camping gear rentals &nbsp;·&nbsp; Arkansas</div>
+  </div>
+  <div class="hero-rule"></div>
+
+  <!-- ══ BODY ══ -->
+  <div class="body">
+
+    <div class="value-line">Premium camping kit rentals &nbsp;·&nbsp; Arkansas</div>
+
+    <!-- KIT MENU -->
+    <div class="kit-menu">
+
+      <div class="kit-row">
+        <div class="kit-row-left">
+          <div class="kit-row-name">The Ridgeline</div>
+          <div class="kit-row-dots"></div>
+        </div>
+        <div class="kit-row-for">Couples &amp; first-timers</div>
+        <div class="kit-row-price">$35<span>/night</span></div>
+      </div>
+
+      <div class="kit-row">
+        <div class="kit-row-left">
+          <div class="kit-row-name">The Ouachita Kit</div>
+          <div class="kit-row-dots"></div>
+        </div>
+        <div class="kit-row-for">Backpackers &amp; hikers</div>
+        <div class="kit-row-price">$75<span>/night</span></div>
+      </div>
+
+      <div class="kit-row">
+        <div class="kit-row-left">
+          <div class="kit-row-name">River Valley Pack</div>
+          <div class="kit-row-dots"></div>
+        </div>
+        <div class="kit-row-for">Groups of 4–6</div>
+        <div class="kit-row-price">$85<span>/night</span></div>
+      </div>
+
+    </div>
+
+    <!-- HOW IT WORKS — inline, minimal -->
+    <div class="how-line">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-text">Reserve online</div>
+      </div>
+      <div class="how-arrow">›</div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-text">Pick up locally</div>
+      </div>
+      <div class="how-arrow">›</div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-text">Camp. Return dirty.</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta-left">
+        <div class="cta-action">Reserve your<br><em>weekend.</em></div>
+        <div class="cta-url">back40utfitters.com</div>
+        <div class="cta-locale">Fort Smith &nbsp;·&nbsp; Ozarks &nbsp;·&nbsp; Ouachitas</div>
+      </div>
+      <div class="cta-qr-wrap">
+        <img
+          src="https://raw.githubusercontent.com/B40-ADMIN/B40-First-repo/main/QR%20Code%20to%20Google%20Booking%20Page.png"
+          alt="Scan to book"
+        />
+        <div class="cta-qr-label">Scan to book</div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+</div><!-- /page -->
+</body>
+</html>

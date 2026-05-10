@@ -2,298 +2,365 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Back40utfitters – Grand Opening Flier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back40utfitters — Print Asset Library</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: #e0ddd6;
-    display: flex;
-    justify-content: center;
-    padding: 18px;
-  }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #e8e5dd;
+  min-height: 100vh;
+  padding: 40px 24px 60px;
+  color: #1a1a18;
+}
 
-  .page {
-    width: 8.5in;
-    background: #F4F0E6;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.2);
-  }
+.shell {
+  max-width: 960px;
+  margin: 0 auto;
+}
 
-  .header {
-    background: #2C3E2D;
-    padding: 24px 48px 18px;
-    text-align: center;
-  }
-  .header-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #C8AA6E;
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-  .header-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 44px;
-    font-weight: 900;
-    color: #F4F0E6;
-    line-height: 1.1;
-    margin-bottom: 4px;
-  }
-  .header-title span { color: #C8AA6E; }
-  .header-sub {
-    font-size: 12px;
-    color: rgba(244,240,230,0.7);
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.5;
-  }
+/* ── HEADER ── */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(44,62,45,0.15);
+}
+.site-header img {
+  height: 48px;
+  width: auto;
+  flex-shrink: 0;
+}
+.site-header-text {}
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2C3E2D;
+  line-height: 1.1;
+}
+.site-sub {
+  font-size: 12px;
+  color: #6b6b60;
+  margin-top: 3px;
+  letter-spacing: 0.02em;
+}
 
-  .feature-bar {
-    background: #B5631A;
-    display: flex;
-    justify-content: space-around;
-    padding: 8px 48px;
-  }
-  .feature-item {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #fff;
-  }
-  .feature-item::before { content: '◆ '; color: rgba(244,240,230,0.7); }
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4A7C59;
+  margin-bottom: 14px;
+  padding-left: 2px;
+}
 
-  .packages {
-    flex: 1;
-    padding: 16px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
+/* ── CARD GRID ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 48px;
+}
+.card-grid.two-up {
+  grid-template-columns: repeat(2, 1fr);
+}
 
-  .pkg-card {
-    break-inside: avoid;
-    background: #fff;
-    border-radius: 10px;
-    display: flex;
-    overflow: hidden;
-    border: 1px solid rgba(44,62,45,0.12);
-    min-height: 160px;
-  }
-  .pkg-photo { width: 230px; flex-shrink: 0; position: relative; overflow: hidden; }
-  .pkg-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .pkg-photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 60%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 14px 16px;
-  }
-  .pkg-tier-label {
-    display: inline-block;
-    width: fit-content;
-    background: #4A7C59;
-    color: #fff;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 999px;
-    padding: 2px 8px;
-    margin-bottom: 7px;
-  }
-  .pkg-tier-label.orange { background: #B5631A; }
-  .pkg-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #F4F0E6;
-    line-height: 1.1;
-    margin-bottom: 2px;
-  }
-  .pkg-tagline-sm { font-size: 9.5px; color: rgba(244,240,230,0.75); font-style: italic; line-height: 1.4; }
-  .pkg-price-wrap { margin-top: 8px; }
-  .pkg-from {
-    font-size: 8px;
-    color: rgba(244,240,230,0.6);
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .pkg-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #C8AA6E;
-    line-height: 1;
-  }
-  .pkg-price sub {
-    font-size: 11px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    color: rgba(200,170,110,0.85);
-    vertical-align: baseline;
-  }
-  .pkg-content {
-    flex: 1;
-    padding: 16px 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  .pkg-desc { font-size: 11px; color: #555; line-height: 1.5; margin-bottom: 10px; font-style: italic; }
-  .pkg-gear { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; flex: 1; }
-  .pkg-gear-item {
-    font-size: 11px;
-    color: #1a1a18;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    line-height: 1.3;
-  }
-  .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-  .pkg-note { margin-top: 8px; font-size: 9.5px; color: #B5631A; font-weight: 500; }
-  .pkg-badge {
-    display: inline-block;
-    background: #4A7C59;
-    color: #fff;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 999px;
-    padding: 2px 8px;
-    margin-bottom: 7px;
-  }
-  .pkg-badge.orange { background: #B5631A; }
+/* ── ASSET CARD ── */
+.asset-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(44,62,45,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.15s, transform 0.15s;
+  text-decoration: none;
+  color: inherit;
+}
+.asset-card:hover {
+  box-shadow: 0 6px 24px rgba(44,62,45,0.14);
+  transform: translateY(-2px);
+}
 
-  .cta-block {
-    background: #2C3E2D;
-    margin: 0 32px 8px;
-    border-radius: 10px;
-    padding: 20px 26px;
-    display: flex;
-    align-items: center;
-    gap: 22px;
-  }
-  .cta-text { flex: 1; }
-  .cta-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: 19px;
-    font-weight: 700;
-    color: #F4F0E6;
-    margin-bottom: 4px;
-  }
-  .cta-headline span { color: #C8AA6E; }
-  .cta-body { font-size: 10.5px; color: rgba(244,240,230,0.7); line-height: 1.5; margin-bottom: 7px; }
-  .cta-url { font-size: 12.5px; font-weight: 600; color: #C8AA6E; letter-spacing: 0.04em; }
-  .cta-qr {
-    width: 78px;
-    height: 78px;
-    background: #F4F0E6;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
+.asset-preview {
+  width: 100%;
+  height: 180px;
+  background: #2C3E2D;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.asset-preview iframe {
+  width: 200%;
+  height: 200%;
+  border: none;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+}
+.asset-preview-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+.preview-icon {
+  width: 36px;
+  height: 36px;
+  stroke: #C8AA6E;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+}
+.preview-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,240,230,0.5);
+  text-align: center;
+}
 
-  .footer {
-    text-align: center;
-    padding: 8px 48px 4px;
-    font-size: 8.5px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #6b6b60;
-  }
+.asset-info {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.asset-tag {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 2px 8px;
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 7px;
+}
+.tag-print    { background: rgba(74,124,89,0.12); color: #4A7C59; }
+.tag-dynamic  { background: rgba(44,62,45,0.08);  color: #2C3E2D; }
+.tag-archive  { background: rgba(107,107,96,0.1); color: #6b6b60; }
+.tag-primary  { background: #B5631A; color: #fff; }
 
-  .directory-items {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 18px;
-    justify-content: center;
-    margin: 10px 0;
-  }
+.asset-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2C3E2D;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+.asset-desc {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.55;
+  flex: 1;
+  margin-bottom: 12px;
+}
+.asset-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4A7C59;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.asset-link svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.asset-link:hover { color: #2C3E2D; }
 
-  .pkg-card.stack-list {
-    flex-direction: column;
-    padding: 20px;
-    justify-content: flex-start;
-  }
-  .stack-list .directory-item { margin-bottom: 12px; text-align: center; }
-  .stack-list .directory-item a {
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    color: #2C3E2D;
-    font-weight: 500;
-  }
-  .stack-list .directory-item a:hover { text-decoration: underline; }
+/* ── DIVIDER ── */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(44,62,45,0.12);
+  margin-bottom: 40px;
+}
 
-  @media print {
-    body { background: none; padding: 0; }
-    .page { box-shadow: none; width: 100%; }
-  }
+/* ── FOOTER ── */
+.site-footer {
+  text-align: center;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9a9a8e;
+  padding-top: 24px;
+  border-top: 1px solid rgba(44,62,45,0.1);
+}
 </style>
 </head>
 <body>
-<div class="page">
+<div class="shell">
 
-  <div class="header">
-    <div class="header-eyebrow">Back40utfitters · River Valley, Arkansas</div>
-    <div class="header-title">Gear Up. <span>Get Out.</span><br>Come Back Dirty.</div>
-    <div class="header-sub">Groups, glamping, trail-ready, and ultralight kits — premium rental gear without the gear closet clutter.</div>
-  </div>
-
-  <div class="feature-bar">
-    <span class="feature-item">Groups &amp; Glamping</span>
-    <span class="feature-item">Ultralight Trail Kits</span>
-    <span class="feature-item">Born in the Ouachitas</span>
-  </div>
-
-  <div class="packages">
-    <div id="river-valley-pack"></div>
-    <div id="basecamp"></div>
-    <div id="ridgeline"></div>
-    <div id="ouachita"></div>
-    <div id="drop-camp"></div>
-  </div>
-
-  <div class="cta-block">
-    <div class="cta-text">
-      <div class="cta-headline">Ready to <span>Get Out?</span></div>
-      <div class="cta-body">The outdoors shouldn't cost you a second mortgage.<br>Scan to request your kit — Cameron will text you within 1 hour to confirm availability.</div>
-      <div class="cta-url">back40utfitters.com</div>
+  <!-- HEADER -->
+  <header class="site-header">
+    <img src="https://raw.githubusercontent.com/B40-ADMIN/B40-First-repo/refs/heads/main/B40%20Main%20Logo%20w%20Light%20BG.svg" alt="Back40utfitters">
+    <div class="site-header-text">
+      <div class="site-title">Print Asset Library</div>
+      <div class="site-sub">Internal tool — Back40utfitters · Fort Smith, AR</div>
     </div>
-    <img src="https://raw.githubusercontent.com/B40-ADMIN/B40-First-repo/main/QR%20Code%20to%20Google%20Booking%20Page.png" alt="Scan to book" class="cta-qr">
+  </header>
+
+  <!-- NEW CONCEPT -->
+  <div class="section-label">New Concept</div>
+  <div class="card-grid" style="grid-template-columns:1fr 1fr;margin-bottom:48px">
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/print-poster-concept.html" class="asset-card">
+      <div class="asset-preview asset-preview-placeholder" style="background:#2C3E2D">
+        <svg class="preview-icon" viewBox="0 0 24 24" style="width:48px;height:48px;opacity:0.5"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="16" x2="11" y2="16"/></svg>
+        <div class="preview-label" style="font-size:10px;opacity:0.7">Poster Concept</div>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-primary">New Direction · Poster</span>
+        <div class="asset-name">Print Poster Concept</div>
+        <div class="asset-desc">Completely new layout direction. Dark typographic hero, menu-style kit listing, editorial body, large quiet CTA. Designed for bulletin boards and real-world walls — poster energy, not brochure energy.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
   </div>
 
-  <div class="footer">Back40utfitters · Fort Smith, AR · "Gear Up. Get Out. Come Back Dirty."</div>
+  <hr class="divider">
+
+  <!-- PRIMARY PRINT FILES -->
+  <div class="section-label">Previous Print Assets</div>
+  <div class="card-grid">
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/print-acquisition-flyer.html" class="asset-card">
+      <div class="asset-preview asset-preview-placeholder">
+        <svg class="preview-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <div class="preview-label">Acquisition Flyer</div>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-primary">Primary · Cold Traffic</span>
+        <div class="asset-name">Print Acquisition Flyer</div>
+        <div class="asset-desc">Poster-style cold-traffic flyer. Hero headline, 3 punch statements, simple How It Works, kit photo tiles, dominant CTA. Optimized for bulletin boards, coffee shops, campground offices.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/print-kit-comparison-sheet.html" class="asset-card">
+      <div class="asset-preview asset-preview-placeholder">
+        <svg class="preview-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+        <div class="preview-label">Comparison Sheet</div>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-print">Secondary · Comparison</span>
+        <div class="asset-name">Kit Comparison Sheet</div>
+        <div class="asset-desc">Decision-support sheet for audiences who already know the concept. Answers "which kit is right for me?" with a side-by-side card comparison, identity labels, and trust signals.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/print-single-page-hybrid.html" class="asset-card">
+      <div class="asset-preview asset-preview-placeholder">
+        <svg class="preview-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18"/></svg>
+        <div class="preview-label">Single Page Hybrid</div>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-print">All-in-One · 8.5×11</span>
+        <div class="asset-name">Single Page Hybrid</div>
+        <div class="asset-desc">One-page compromise combining acquisition and comparison. Aggressively reduced copy density — 35% less text, 50% fewer bullets than earlier versions. Enlarged CTA.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+  </div>
+
+  <hr class="divider">
+
+  <!-- STATIC FLIERS -->
+  <div class="section-label">Static Fliers (Standalone)</div>
+  <div class="card-grid two-up">
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/Flier%20v2.0.html" class="asset-card">
+      <div class="asset-preview asset-preview-placeholder">
+        <svg class="preview-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <div class="preview-label">Flier v2.0</div>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-print">Static · Self-Contained</span>
+        <div class="asset-name">Flier v2.0</div>
+        <div class="asset-desc">Full redesign. Includes pain/relief block, How It Works, trust bar, 3-column kit cards, and dominant CTA. All assets inlined — no external dependencies except Google Fonts.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/Flier%20v1.1.html" class="asset-card">
+      <div class="asset-preview asset-preview-placeholder">
+        <svg class="preview-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <div class="preview-label">Flier v1.1</div>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-archive">Archive · Static</span>
+        <div class="asset-name">Flier v1.1</div>
+        <div class="asset-desc">Earlier standalone version. Horizontal card layout with logo, How It Works strip, trust bar, and pricing improvements. Preserved for reference.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+  </div>
+
+  <hr class="divider">
+
+  <!-- DYNAMIC FLIERS -->
+  <div class="section-label">Dynamic Fliers (Loads from GitHub)</div>
+  <div class="card-grid two-up">
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/dynamic-fliers/dynamic_RVP_RL_OT.html" class="asset-card">
+      <div class="asset-preview asset-preview-placeholder" style="background:#1e2e1f">
+        <svg class="preview-icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <div class="preview-label">Dynamic · River Valley / Ridgeline / Ouachita</div>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-dynamic">Dynamic · Fetches from GitHub</span>
+        <div class="asset-name">RVP / Ridgeline / Ouachita</div>
+        <div class="asset-desc">Dynamically loads River Valley Pack, Ridgeline, and Ouachita kit cards from GitHub raw files at runtime. Requires internet connection. Kit content updates without rebuilding the file.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/dynamic-fliers/mobile-test-flier.html" class="asset-card">
+      <div class="asset-preview asset-preview-placeholder" style="background:#1e2e1f">
+        <svg class="preview-icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        <div class="preview-label">Mobile Test</div>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-dynamic">Dynamic · Mobile</span>
+        <div class="asset-name">Mobile Test Flier</div>
+        <div class="asset-desc">Mobile-layout test version of the dynamic flier. Used to evaluate responsive rendering before committing to static builds.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">Back40utfitters · Print Asset Library · Internal Use Only</footer>
 
 </div>
-
-<script>
-  function loadKit(url, elementId) {
-    fetch(url)
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById(elementId).innerHTML = data;
-      });
-  }
-
-  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/river-valley-pack', 'river-valley-pack');
-  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/basecamp', 'basecamp');
-  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/ridgeline', 'ridgeline');
-  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/ouachita', 'ouachita');
-  loadKit('https://raw.githubusercontent.com/B40-ADMIN/print-fliers-for-grand-opening/main/kit-source-code/drop-camp', 'drop-camp');
-</script>
 </body>
 </html>
