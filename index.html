@@ -17,7 +17,7 @@ body {
 }
 
 .shell {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
@@ -35,7 +35,6 @@ body {
   width: auto;
   flex-shrink: 0;
 }
-.site-header-text {}
 .site-title {
   font-family: 'Playfair Display', serif;
   font-size: 22px;
@@ -71,6 +70,10 @@ body {
 .card-grid.two-up {
   grid-template-columns: repeat(2, 1fr);
 }
+.card-grid.one-up {
+  grid-template-columns: 1fr;
+  max-width: 520px;
+}
 
 /* ── ASSET CARD ── */
 .asset-card {
@@ -89,49 +92,25 @@ body {
   transform: translateY(-2px);
 }
 
+/* ── IFRAME PREVIEW ── */
 .asset-preview {
   width: 100%;
-  height: 180px;
+  height: 220px;
   background: #2C3E2D;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
 }
 .asset-preview iframe {
-  width: 200%;
-  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
   border: none;
-  transform: scale(0.5);
+  transform: scale(0.333);
   transform-origin: top left;
   pointer-events: none;
-}
-.asset-preview-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px;
-}
-.preview-icon {
-  width: 36px;
-  height: 36px;
-  stroke: #C8AA6E;
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0.7;
-}
-.preview-label {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(244,240,230,0.5);
-  text-align: center;
 }
 
 .asset-info {
@@ -155,6 +134,7 @@ body {
 .tag-dynamic  { background: rgba(44,62,45,0.08);  color: #2C3E2D; }
 .tag-archive  { background: rgba(107,107,96,0.1); color: #6b6b60; }
 .tag-primary  { background: #B5631A; color: #fff; }
+.tag-final    { background: #2C3E2D; color: #C8AA6E; }
 
 .asset-name {
   font-family: 'Playfair Display', serif;
@@ -224,19 +204,30 @@ body {
     </div>
   </header>
 
-  <!-- NEW CONCEPT -->
-  <div class="section-label">New Concept</div>
-  <div class="card-grid" style="grid-template-columns:1fr 1fr;margin-bottom:48px">
+  <!-- FINAL -->
+  <div class="section-label">Final Copies</div>
+  <div class="card-grid two-up" style="margin-bottom:48px">
 
-    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/print-poster-concept.html" class="asset-card">
-      <div class="asset-preview asset-preview-placeholder" style="background:#2C3E2D">
-        <svg class="preview-icon" viewBox="0 0 24 24" style="width:48px;height:48px;opacity:0.5"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="16" x2="11" y2="16"/></svg>
-        <div class="preview-label" style="font-size:10px;opacity:0.7">Poster Concept</div>
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/final/Flier%20v2.0.html" class="asset-card">
+      <div class="asset-preview">
+        <iframe src="final/Flier v2.0.html" loading="lazy" sandbox="allow-same-origin"></iframe>
       </div>
       <div class="asset-info">
-        <span class="asset-tag tag-primary">New Direction · Poster</span>
-        <div class="asset-name">Print Poster Concept</div>
-        <div class="asset-desc">Completely new layout direction. Dark typographic hero, menu-style kit listing, editorial body, large quiet CTA. Designed for bulletin boards and real-world walls — poster energy, not brochure energy.</div>
+        <span class="asset-tag tag-final">Final · v2.0</span>
+        <div class="asset-name">Flier v2.0</div>
+        <div class="asset-desc">Current final version. Full editorial redesign — dark typographic hero, kit card grid, dominant CTA. Print-ready.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/final/Flier%20v1.2.html" class="asset-card">
+      <div class="asset-preview">
+        <iframe src="final/Flier v1.2.html" loading="lazy" sandbox="allow-same-origin"></iframe>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-final">Final · v1.2</span>
+        <div class="asset-name">Flier v1.2</div>
+        <div class="asset-desc">Previous final version. Retained for comparison and reference before v2.0 direction was adopted.</div>
         <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>
@@ -245,45 +236,66 @@ body {
 
   <hr class="divider">
 
-  <!-- PRIMARY PRINT FILES -->
-  <div class="section-label">Previous Print Assets</div>
-  <div class="card-grid">
+  <!-- PRINT CONCEPTS -->
+  <div class="section-label">Print Concepts</div>
+  <div class="card-grid" style="margin-bottom:48px">
 
-    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/print-acquisition-flyer.html" class="asset-card">
-      <div class="asset-preview asset-preview-placeholder">
-        <svg class="preview-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        <div class="preview-label">Acquisition Flyer</div>
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/b40-premium-flyer.html" class="asset-card">
+      <div class="asset-preview">
+        <iframe src="static-fliers/b40-premium-flyer.html" loading="lazy" sandbox="allow-same-origin"></iframe>
       </div>
       <div class="asset-info">
-        <span class="asset-tag tag-primary">Primary · Cold Traffic</span>
+        <span class="asset-tag tag-primary">New Direction · Premium</span>
+        <div class="asset-name">B40 Premium Flyer</div>
+        <div class="asset-desc">Premium editorial direction with DM Serif Display and Space Mono. Elevated aesthetic — designed for high-end campground and resort placements.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/print-poster-concept.html" class="asset-card">
+      <div class="asset-preview">
+        <iframe src="static-fliers/print-poster-concept.html" loading="lazy" sandbox="allow-same-origin"></iframe>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-primary">Concept · Poster</span>
+        <div class="asset-name">Print Poster Concept</div>
+        <div class="asset-desc">Dark typographic hero, menu-style kit listing, editorial body, large quiet CTA. Poster energy, not brochure energy.</div>
+        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/print-acquisition-flyer.html" class="asset-card">
+      <div class="asset-preview">
+        <iframe src="static-fliers/print-acquisition-flyer.html" loading="lazy" sandbox="allow-same-origin"></iframe>
+      </div>
+      <div class="asset-info">
+        <span class="asset-tag tag-print">Concept · Cold Traffic</span>
         <div class="asset-name">Print Acquisition Flyer</div>
-        <div class="asset-desc">Poster-style cold-traffic flyer. Hero headline, 3 punch statements, simple How It Works, kit photo tiles, dominant CTA. Optimized for bulletin boards, coffee shops, campground offices.</div>
+        <div class="asset-desc">Poster-style cold-traffic flyer. Hero headline, 3 punch statements, simple How It Works, kit photo tiles, dominant CTA.</div>
         <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>
 
-    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/print-kit-comparison-sheet.html" class="asset-card">
-      <div class="asset-preview asset-preview-placeholder">
-        <svg class="preview-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
-        <div class="preview-label">Comparison Sheet</div>
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/print-kit-comparison-sheet.html" class="asset-card">
+      <div class="asset-preview">
+        <iframe src="static-fliers/print-kit-comparison-sheet.html" loading="lazy" sandbox="allow-same-origin"></iframe>
       </div>
       <div class="asset-info">
-        <span class="asset-tag tag-print">Secondary · Comparison</span>
+        <span class="asset-tag tag-print">Concept · Comparison</span>
         <div class="asset-name">Kit Comparison Sheet</div>
-        <div class="asset-desc">Decision-support sheet for audiences who already know the concept. Answers "which kit is right for me?" with a side-by-side card comparison, identity labels, and trust signals.</div>
+        <div class="asset-desc">Decision-support sheet. Answers "which kit is right for me?" with side-by-side card comparison, identity labels, and trust signals.</div>
         <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>
 
-    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/print-single-page-hybrid.html" class="asset-card">
-      <div class="asset-preview asset-preview-placeholder">
-        <svg class="preview-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18"/></svg>
-        <div class="preview-label">Single Page Hybrid</div>
+    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/print-single-page-hybrid.html" class="asset-card">
+      <div class="asset-preview">
+        <iframe src="static-fliers/print-single-page-hybrid.html" loading="lazy" sandbox="allow-same-origin"></iframe>
       </div>
       <div class="asset-info">
-        <span class="asset-tag tag-print">All-in-One · 8.5×11</span>
+        <span class="asset-tag tag-print">Concept · All-in-One</span>
         <div class="asset-name">Single Page Hybrid</div>
-        <div class="asset-desc">One-page compromise combining acquisition and comparison. Aggressively reduced copy density — 35% less text, 50% fewer bullets than earlier versions. Enlarged CTA.</div>
+        <div class="asset-desc">One-page compromise combining acquisition and comparison. 35% less text, 50% fewer bullets than earlier versions. Enlarged CTA.</div>
         <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>
@@ -293,31 +305,17 @@ body {
   <hr class="divider">
 
   <!-- STATIC FLIERS -->
-  <div class="section-label">Static Fliers (Standalone)</div>
-  <div class="card-grid two-up">
-
-    <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/Flier%20v2.0.html" class="asset-card">
-      <div class="asset-preview asset-preview-placeholder">
-        <svg class="preview-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <div class="preview-label">Flier v2.0</div>
-      </div>
-      <div class="asset-info">
-        <span class="asset-tag tag-print">Static · Self-Contained</span>
-        <div class="asset-name">Flier v2.0</div>
-        <div class="asset-desc">Full redesign. Includes pain/relief block, How It Works, trust bar, 3-column kit cards, and dominant CTA. All assets inlined — no external dependencies except Google Fonts.</div>
-        <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </div>
-    </a>
+  <div class="section-label">Static Fliers (Archive)</div>
+  <div class="card-grid two-up" style="margin-bottom:48px">
 
     <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/static-fliers/Flier%20v1.1.html" class="asset-card">
-      <div class="asset-preview asset-preview-placeholder">
-        <svg class="preview-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <div class="preview-label">Flier v1.1</div>
+      <div class="asset-preview">
+        <iframe src="static-fliers/Flier v1.1.html" loading="lazy" sandbox="allow-same-origin"></iframe>
       </div>
       <div class="asset-info">
-        <span class="asset-tag tag-archive">Archive · Static</span>
+        <span class="asset-tag tag-archive">Archive · v1.1</span>
         <div class="asset-name">Flier v1.1</div>
-        <div class="asset-desc">Earlier standalone version. Horizontal card layout with logo, How It Works strip, trust bar, and pricing improvements. Preserved for reference.</div>
+        <div class="asset-desc">Earlier standalone version. Horizontal card layout with logo, How It Works strip, trust bar, and pricing. Preserved for reference.</div>
         <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>
@@ -331,22 +329,20 @@ body {
   <div class="card-grid two-up">
 
     <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/dynamic-fliers/dynamic_RVP_RL_OT.html" class="asset-card">
-      <div class="asset-preview asset-preview-placeholder" style="background:#1e2e1f">
-        <svg class="preview-icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        <div class="preview-label">Dynamic · River Valley / Ridgeline / Ouachita</div>
+      <div class="asset-preview">
+        <iframe src="dynamic-fliers/dynamic_RVP_RL_OT.html" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
       </div>
       <div class="asset-info">
         <span class="asset-tag tag-dynamic">Dynamic · Fetches from GitHub</span>
         <div class="asset-name">RVP / Ridgeline / Ouachita</div>
-        <div class="asset-desc">Dynamically loads River Valley Pack, Ridgeline, and Ouachita kit cards from GitHub raw files at runtime. Requires internet connection. Kit content updates without rebuilding the file.</div>
+        <div class="asset-desc">Dynamically loads River Valley Pack, Ridgeline, and Ouachita kit cards from GitHub raw files at runtime. Requires internet connection.</div>
         <span class="asset-link">Open file <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>
 
     <a href="https://b40-admin.github.io/print-fliers-for-grand-opening/dynamic-fliers/mobile-test-flier.html" class="asset-card">
-      <div class="asset-preview asset-preview-placeholder" style="background:#1e2e1f">
-        <svg class="preview-icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        <div class="preview-label">Mobile Test</div>
+      <div class="asset-preview">
+        <iframe src="dynamic-fliers/mobile-test-flier.html" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
       </div>
       <div class="asset-info">
         <span class="asset-tag tag-dynamic">Dynamic · Mobile</span>
